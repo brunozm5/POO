@@ -1,0 +1,89 @@
+package agencia;
+
+class Pacote {
+    String destino;
+    int duracao;
+    double preco;
+    void exibirInfo() {
+        System.out.println("Destino: " + destino + " | Duração: " + duracao + " dias | Preço: R$" + preco);
+    }
+}
+
+class PacoteNacional extends Pacote {
+    String estado;
+    String transporte;
+    void exibirDetalhes() {
+        exibirInfo();
+        System.out.println("Tipo: Nacional | Estado: " + estado + " | Transporte: " + transporte);
+    }
+}
+
+class PacoteInternacional extends Pacote {
+    String pais;
+    boolean visto;
+    void exibirDetalhes() {
+        exibirInfo();
+        System.out.println("Tipo: Internacional | País: " + pais + " | Visto necessário: " + (visto ? "Sim" : "Não"));
+    }
+}
+
+class PacoteAventura extends Pacote {
+    String dificuldade;
+    boolean equipamento;
+    void exibirDetalhes() {
+        exibirInfo();
+        System.out.println("Tipo: Aventura | Dificuldade: " + dificuldade + " | Equipamento incluso: " + (equipamento ? "Sim" : "Não"));
+    }
+}
+
+class Guia {
+    String nome;
+    String idioma;
+    int experiencia;
+    void exibirInfo() {
+        System.out.println("Guia: " + nome + " | Idioma: " + idioma + " | Experiência: " + experiencia + " anos");
+    }
+}
+
+public class Agencia {
+    public static void main(String[] args) {
+        PacoteNacional p1 = new PacoteNacional();
+        p1.destino = "Rio de Janeiro";
+        p1.duracao = 5;
+        p1.preco = 1200.00;
+        p1.estado = "RJ";
+        p1.transporte = "Ônibus";
+        Guia g1 = new Guia();
+        g1.nome = "Carlos";
+        g1.idioma = "Português";
+        g1.experiencia = 8;
+        p1.exibirDetalhes();
+        g1.exibirInfo();
+
+        PacoteInternacional p2 = new PacoteInternacional();
+        p2.destino = "Paris";
+        p2.duracao = 7;
+        p2.preco = 5500.00;
+        p2.pais = "França";
+        p2.visto = true;
+        Guia g2 = new Guia();
+        g2.nome = "Marina";
+        g2.idioma = "Francês";
+        g2.experiencia = 12;
+        p2.exibirDetalhes();
+        g2.exibirInfo();
+
+        PacoteAventura p3 = new PacoteAventura();
+        p3.destino = "Chapada Diamantina";
+        p3.duracao = 4;
+        p3.preco = 900.00;
+        p3.dificuldade = "Média";
+        p3.equipamento = true;
+        Guia g3 = new Guia();
+        g3.nome = "João";
+        g3.idioma = "Português";
+        g3.experiencia = 5;
+        p3.exibirDetalhes();
+        g3.exibirInfo();
+    }
+}
