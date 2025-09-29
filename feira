@@ -1,0 +1,95 @@
+package feira;
+
+class Projeto {
+    String nomeProjeto;
+    String responsavel;
+    String instituicao;
+    String espaco;
+    void exibirInfo() {
+        System.out.println("Projeto: " + nomeProjeto + " | Responsável: " + responsavel + " | Instituição: " + instituicao + " | Espaço: " + espaco);
+    }
+}
+
+class ProjetoRobotica extends Projeto {
+    int sensores;
+    String hardware;
+    String software;
+    String linguagem;
+    void exibirDetalhes() {
+        exibirInfo();
+        System.out.println("Tipo: Robótica | Sensores: " + sensores + " | Hardware: " + hardware + " | Software: " + software + " | Linguagem: " + linguagem);
+    }
+}
+
+class ProjetoSoftware extends Projeto {
+    String linguagem;
+    String plataforma;
+    String framework;
+    void exibirDetalhes() {
+        exibirInfo();
+        System.out.println("Tipo: Software | Linguagem: " + linguagem + " | Plataforma: " + plataforma + " | Framework: " + framework);
+    }
+}
+
+class ProjetoCiencias extends Projeto {
+    String tema;
+    String origemPesquisa;
+    String area;
+    void exibirDetalhes() {
+        exibirInfo();
+        System.out.println("Tipo: Ciências | Tema: " + tema + " | Origem: " + origemPesquisa + " | Área: " + area);
+    }
+}
+
+class Avaliador {
+    String nome;
+    String especialidade;
+    void exibirInfo() {
+        System.out.println("Avaliador: " + nome + " | Especialidade: " + especialidade);
+    }
+}
+
+public class Feira {
+    public static void main(String[] args) {
+        ProjetoRobotica p1 = new ProjetoRobotica();
+        p1.nomeProjeto = "Robô Seguidor";
+        p1.responsavel = "João";
+        p1.instituicao = "ETEC";
+        p1.espaco = "A1";
+        p1.sensores = 4;
+        p1.hardware = "Arduino";
+        p1.software = "IDE Arduino";
+        p1.linguagem = "C++";
+        p1.exibirDetalhes();
+
+        ProjetoSoftware p2 = new ProjetoSoftware();
+        p2.nomeProjeto = "App Escola";
+        p2.responsavel = "Maria";
+        p2.instituicao = "FATEC";
+        p2.espaco = "B2";
+        p2.linguagem = "Java";
+        p2.plataforma = "Mobile";
+        p2.framework = "Android SDK";
+        p2.exibirDetalhes();
+
+        ProjetoCiencias p3 = new ProjetoCiencias();
+        p3.nomeProjeto = "Filtro de Água";
+        p3.responsavel = "Carlos";
+        p3.instituicao = "IFSP";
+        p3.espaco = "C3";
+        p3.tema = "Purificação";
+        p3.origemPesquisa = "Laboratório";
+        p3.area = "Química";
+        p3.exibirDetalhes();
+
+        Avaliador a1 = new Avaliador();
+        a1.nome = "Prof. Ana";
+        a1.especialidade = "Ciências";
+        a1.exibirInfo();
+
+        Avaliador a2 = new Avaliador();
+        a2.nome = "Eng. Roberto";
+        a2.especialidade = "Robótica";
+        a2.exibirInfo();
+    }
+}
