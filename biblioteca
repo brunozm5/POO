@@ -1,0 +1,116 @@
+package biblioteca;
+
+class Obra {
+    String titulo;
+    String autor;
+    int ano;
+    void exibirInfo() {
+        System.out.println("Título: " + titulo + " | Autor: " + autor + " | Ano: " + ano);
+    }
+}
+
+class Livro extends Obra {
+    int paginas;
+    String genero;
+    void exibirDetalhes() {
+        exibirInfo();
+        System.out.println("Tipo: Livro | Páginas: " + paginas + " | Gênero: " + genero);
+    }
+}
+
+class Revista extends Obra {
+    int edicao;
+    String area;
+    void exibirDetalhes() {
+        exibirInfo();
+        System.out.println("Tipo: Revista | Edição: " + edicao + " | Área: " + area);
+    }
+}
+
+class Artigo extends Obra {
+    String conferencia;
+    String doi;
+    void exibirDetalhes() {
+        exibirInfo();
+        System.out.println("Tipo: Artigo Científico | Publicado em: " + conferencia + " | DOI: " + doi);
+    }
+}
+
+class Usuario {
+    String nome;
+    String matricula;
+    String curso;
+    void exibirInfo() {
+        System.out.println("Usuário: " + nome + " | Matrícula: " + matricula + " | Curso: " + curso);
+    }
+}
+
+class Emprestimo {
+    Obra obra;
+    Usuario usuario;
+    String dataEmprestimo;
+    String dataDevolucao;
+    void exibirEmprestimo() {
+        System.out.println("=== Empréstimo ===");
+        obra.exibirInfo();
+        usuario.exibirInfo();
+        System.out.println("Data do Empréstimo: " + dataEmprestimo + " | Devolução: " + dataDevolucao);
+        System.out.println("===================");
+    }
+}
+
+public class Biblioteca {
+    public static void main(String[] args) {
+        Livro l1 = new Livro();
+        l1.titulo = "O Hobbit";
+        l1.autor = "J.R.R. Tolkien";
+        l1.ano = 1937;
+        l1.paginas = 310;
+        l1.genero = "Fantasia";
+
+        Revista r1 = new Revista();
+        r1.titulo = "Ciência Hoje";
+        r1.autor = "SBPC";
+        r1.ano = 2023;
+        r1.edicao = 152;
+        r1.area = "Ciências";
+
+        Artigo a1 = new Artigo();
+        a1.titulo = "IA na Educação";
+        a1.autor = "Ana Lima";
+        a1.ano = 2022;
+        a1.conferencia = "SBIE";
+        a1.doi = "10.1234/sbie.2022.001";
+
+        Usuario u1 = new Usuario();
+        u1.nome = "Carlos Mendes";
+        u1.matricula = "20230123";
+        u1.curso = "Engenharia da Computação";
+
+        Usuario u2 = new Usuario();
+        u2.nome = "Mariana Souza";
+        u2.matricula = "20220456";
+        u2.curso = "Biblioteconomia";
+
+        Emprestimo e1 = new Emprestimo();
+        e1.obra = l1;
+        e1.usuario = u1;
+        e1.dataEmprestimo = "01/09/2025";
+        e1.dataDevolucao = "15/09/2025";
+        e1.exibirEmprestimo();
+
+        Emprestimo e2 = new Emprestimo();
+        e2.obra = a1;
+        e2.usuario = u2;
+        e2.dataEmprestimo = "05/09/2025";
+        e2.dataDevolucao = "12/09/2025";
+        e2.exibirEmprestimo();
+
+        Emprestimo e3 = new Emprestimo();
+        e3.obra = r1;
+        e3.usuario = u1;
+        e3.dataEmprestimo = "10/09/2025";
+        e3.dataDevolucao = "20/09/2025";
+        e3.exibirEmprestimo();
+    }
+}
