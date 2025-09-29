@@ -1,0 +1,115 @@
+package campeonato;
+
+class Time {
+    String nome;
+    String instituicao;
+    int numeroJogadores;
+    void exibirInfo() {
+        System.out.println("Time: " + nome + " | Instituição: " + instituicao + " | Jogadores: " + numeroJogadores);
+    }
+}
+
+class TimeFutebol extends Time {
+    String tecnico;
+    int reservas;
+    void exibirDetalhes() {
+        exibirInfo();
+        System.out.println("Modalidade: Futebol | Técnico: " + tecnico + " | Reservas: " + reservas);
+    }
+}
+
+class TimeVolei extends Time {
+    double alturaMedia;
+    int setsJogados;
+    void exibirDetalhes() {
+        exibirInfo();
+        System.out.println("Modalidade: Vôlei | Altura Média: " + alturaMedia + "m | Sets Jogados: " + setsJogados);
+    }
+}
+
+class TimeBasquete extends Time {
+    double alturaMedia;
+    String capitao;
+    void exibirDetalhes() {
+        exibirInfo();
+        System.out.println("Modalidade: Basquete | Altura Média: " + alturaMedia + "m | Capitão: " + capitao);
+    }
+}
+
+class Arbitro {
+    String nome;
+    String modalidade;
+    int anosExperiencia;
+    void exibirInfo() {
+        System.out.println("Árbitro: " + nome + " | Modalidade: " + modalidade + " | Experiência: " + anosExperiencia + " anos");
+    }
+}
+
+class Partida {
+    Time time1;
+    Time time2;
+    Arbitro arbitro;
+    String resultado;
+    void exibirPartida() {
+        System.out.println("=== Partida ===");
+        time1.exibirInfo();
+        time2.exibirInfo();
+        System.out.println("Resultado: " + resultado);
+        arbitro.exibirInfo();
+        System.out.println("================");
+    }
+}
+
+public class Campeonato {
+    public static void main(String[] args) {
+        TimeFutebol t1 = new TimeFutebol();
+        t1.nome = "Tigre FC";
+        t1.instituicao = "Universidade A";
+        t1.numeroJogadores = 11;
+        t1.tecnico = "Carlos";
+        t1.reservas = 5;
+        t1.exibirDetalhes();
+
+        TimeVolei t2 = new TimeVolei();
+        t2.nome = "Águias";
+        t2.instituicao = "Universidade B";
+        t2.numeroJogadores = 6;
+        t2.alturaMedia = 1.85;
+        t2.setsJogados = 3;
+        t2.exibirDetalhes();
+
+        TimeBasquete t3 = new TimeBasquete();
+        t3.nome = "Dunks";
+        t3.instituicao = "Universidade C";
+        t3.numeroJogadores = 5;
+        t3.alturaMedia = 1.92;
+        t3.capitao = "Lucas";
+        t3.exibirDetalhes();
+
+        Arbitro a1 = new Arbitro();
+        a1.nome = "Joana";
+        a1.modalidade = "Futebol";
+        a1.anosExperiencia = 10;
+        a1.exibirInfo();
+
+        Arbitro a2 = new Arbitro();
+        a2.nome = "Rafael";
+        a2.modalidade = "Vôlei";
+        a2.anosExperiencia = 6;
+        a2.exibirInfo();
+
+        Partida p1 = new Partida();
+        p1.time1 = t1;
+        p1.time2 = t3;
+        p1.arbitro = a1;
+        p1.resultado = "3 x 1 para Tigre FC";
+        p1.exibirPartida();
+
+        Partida p2 = new Partida();
+        p2.time1 = t2;
+        p2.time2 = t3;
+        p2.arbitro = a2;
+        p2.resultado = "2 x 0 para Águias";
+        p2.exibirPartida();
+    }
+}
